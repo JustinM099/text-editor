@@ -24,10 +24,10 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
-        publicPath: "",
+        publicPath: "/",
         fingerprints: false,
         inject: true,
         name: 'Just Another Text Editor',
