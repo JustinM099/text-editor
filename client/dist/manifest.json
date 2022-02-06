@@ -35,7 +35,7 @@
   "short_name": "JATE",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "/",
   "description": "A text editor",
   "background_color": "#ffffff"
 }

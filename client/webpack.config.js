@@ -13,10 +13,7 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
-    output: {
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
+
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -27,7 +24,6 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
-        publicPath: "/",
         fingerprints: false,
         inject: true,
         name: 'Just Another Text Editor',
@@ -35,13 +31,17 @@ module.exports = () => {
         description: 'A text editor',
         background_color: '#ffffff',
         crossorigin: 'use-credentials',
+        start_url: '/',
+        publicPath: '/',
+        orientation: 'portrait',
+        display: 'standalone',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
-          
+
 
         ]
       })
@@ -65,11 +65,14 @@ module.exports = () => {
             options: {
               presets: ['@babel/preset-env'],
               plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
-              presets: ['@babel/preset-env'],
             },
           },
         },
       ],
+    },
+    output: {
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, 'dist'),
     },
   };
 };
